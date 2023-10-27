@@ -71,5 +71,31 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
 
+    // Function to mark a task as completed or not
+    function completeTask(taskItem, taskTextElement, checkbox) {
+        if (checkbox.checked) {
+            taskTextElement.style.textDecoration = "line-through"; // Apply a strikethrough style
+        } else {
+            taskTextElement.style.textDecoration = "none"; // Remove the strikethrough style
+        }
+    }
+
+
+
+    // Function to delete a task from the list
+    function deleteTask(taskItem) {
+        todos.removeChild(taskItem); // Remove the task item from the list
+    }
+
+
+
+    // Function to edit the task text
+    function editTask(taskItem, taskTextElement) {
+        // Prompt the user for a new task text and update it if they provide one
+        const newText = prompt("Edit task:", taskTextElement.textContent);
+        if (newText !== null) {
+            taskTextElement.textContent = newText;
+        }
+    }
 
 });
